@@ -3,11 +3,23 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { CartProvider } from './context/CartContext';
+import { TheamProvider } from './context/TheamContext';
+import { AuthProvider } from './context/AuthContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <TheamProvider>
+      <AuthProvider>
+      <CartProvider>
+      <App />
+      </CartProvider>
+      </AuthProvider>
+    </TheamProvider>
+   
+  
+   
   </React.StrictMode>
 );
 

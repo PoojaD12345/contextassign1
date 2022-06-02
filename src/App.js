@@ -1,23 +1,42 @@
-import logo from './logo.svg';
+
+// import React,{useReducer} from 'react'
+import { useContext } from 'react';
 import './App.css';
+import Body from './components/Body';
+import Footer from './components/Footer';
+import Navbar from './components/Navbar';
+import { TheamContext } from './context/TheamContext';
+
+
+
+// const reducer=(state,{type,payload})=>{
+//   switch(type){
+//     case "InCREMENT":{
+//          return state+payload;
+//     }
+//     case "DECREMENT":{
+//       return state-payload;
+//  }
+//  default:{
+//    return state;
+//  }
+//   }
+// }
 
 function App() {
+  // const [counter,dispatch]=useReducer(reducer,0);
+  const {isLight}=useContext(TheamContext)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`App ${isLight ? "light":"dark"}`} >
+      {/* Counter:{counter}
+      <div>
+        <button onclick={()=>dispatch({type:"DECREMENT",payload:1})}>-</button>
+        <button onclick={()=>dispatch({type:"INCREMENT",payload:100})}>+</button>
+      </div> */}
+       <Navbar/>
+      <Body/>
+      <Footer/>
+     
     </div>
   );
 }
